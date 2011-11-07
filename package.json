@@ -1,10 +1,15 @@
 {
-  "name": "node-example",
-  "description": "example node.js and socket.io thing",
-  "version": "0.0.1",
+  "name": "rewrite2011",
+  "description": "Node.js, SMSified and MongoDB... hanging out",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
-    "express": "2.2.0",
+    "smsified": "1.0.6",
     "socket.io": "0.8.4",
     "node-static": "0.5.9",
-  }
+    "mongoose": "*"
+  },
+  "engine": "node >= 0.4.1"
 }
