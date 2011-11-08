@@ -12,11 +12,38 @@
 	    console.log(data);
 	    socket.emit('my other event', { my: 'data' });
 	  });
+
+
+
+	$(document).ready(function() {
+		if (!("WebSocket" in window)) {
+			$('#main').fadeOut("fast");
+			$('<p>Oh no, you need a browser that supports WebSockets. How about <a href="http://www.google.com/chrome">Google Chrome</a>?</p>').appendTo('#container');
+		} else {
+
+		//The user has WebSockets
+			try {
+				var socket;
+				var host = "ws://localhost:8000/socket/server/startDaemon.php";
+				var socket = new WebSocket(host);
+
+	  			socket.on('news', function (data) {
+		
+
+			} catch(exception){
+				message('<p>Error'+exception);
+			}
+		}
+	});
 	</script>
 
 </head>
 <body>
-	
+	<div id="container">
+		<div id="main">
+			
+		</div>
+	</div>	
 </body>
 </html>
 
