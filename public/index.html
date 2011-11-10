@@ -2,45 +2,24 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Page Title</title>
+	<title>DO IT.</title>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
+	<!-- <script src="http://cdn.socket.io/stable/socket.io.js"></script> -->
+	<script src="http://localhost:8080/socket.io/socket.io.js"></script>
+	<script src="js/rewrite.js"></script>
 	<script>
-	  var socket = io.connect('http://localhost');
-	  socket.on('news', function (data) {
-	    console.log(data);
-	    socket.emit('my other event', { my: 'data' });
-	  });
-
-
-
-	$(document).ready(function() {
-		if (!("WebSocket" in window)) {
-			$('#main').fadeOut("fast");
-			$('<p>Oh no, you need a browser that supports WebSockets. How about <a href="http://www.google.com/chrome">Google Chrome</a>?</p>').appendTo('#container');
-		} else {
-
-		//The user has WebSockets
-			try {
-				var socket;
-				var host = "ws://localhost:8000/socket/server/startDaemon.php";
-				var socket = new WebSocket(host);
-
-	  			socket.on('news', function (data) {
-		
-
-			} catch(exception){
-				message('<p>Error'+exception);
-			}
-		}
-	});
+		$(function(){ var rewrite = new ReWrite() });
 	</script>
 
 </head>
 <body>
 	<div id="container">
 		<div id="main">
+			<h1>ReWrite the ReNews</h1>
+			THIS IS THE INDEX PAGE. 
+		</div>
+		<div id="response">
 			
 		</div>
 	</div>	

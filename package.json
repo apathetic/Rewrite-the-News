@@ -1,6 +1,6 @@
 {
-  "name": "rewrite2011",
-  "description": "Node.js, SMSified and MongoDB... hanging out",
+  "name": "rewrite",
+  "description": "Node.js, SMSified and MongoDB... doing stuff",
   "version": "0.1.0",
   "scripts": {
     "start": "node server.js"
@@ -10,6 +10,5 @@
     "socket.io": "0.8.4",
     "node-static": "0.5.9",
     "mongoose": "*"
-  },
-  "engine": "node >= 0.4.1"
+  }
 }
