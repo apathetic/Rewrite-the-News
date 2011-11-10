@@ -1,0 +1,5 @@
+set up your info in config.js
+
+log in to smsified and edit your number to send data to your domain
+
+change "apathetic.no.de" in js/rewrite.js and to updated domain

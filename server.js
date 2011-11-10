@@ -82,17 +82,16 @@ var server = http.createServer(function(request, response) {			// Create a new H
 		});
 	}
 
-}).listen(port);
+});
 
+io = io.listen(server);													// we listen to the http server. THIS LINE MUST COME BEFORE ASSIGNING THE SERVER A PORT TO LISTEN TO.
+server.listen(port);
 util.log('Server listening on port ' + port);
-
-
 
 
 // --------------------------------------------------
 // Start listening here
 // --------------------------------------------------
-var io = io.listen(8080);												// we listen to port 8080. Why not server like in Every. Single. Example? I do not know.
 // var headlines = {};													// i don't know if it's a good idea or not to keep an array of all received words / headlines
 
 io.sockets.on('connection', function (socket) {
@@ -121,7 +120,7 @@ function filterMessage(message) {
 	return;
 };
 
-// cron for javascript:
+// "cron" for javascript:
 // setTimeout(function() {
 //   io.sockets.send('message');
 // }, 5000 );

@@ -12,8 +12,8 @@ function ReWrite() {
 
 
 
-		var socket = io.connect('http://apathetic.no.de', { port:8080 });
-//		var socket = io.connect('http://localhost', {port:8080});
+		var socket = io.connect('http://apathetic.no.de');
+		// var socket = io.connect('http://localhost');
 
 		socket.on('connect', function() {
 			console.log('Connected to server.');
@@ -32,7 +32,7 @@ function ReWrite() {
 		socket.on('news', function (data) {    console.log(data);  });
 
 
-	});
+	// });
 
 
 }
