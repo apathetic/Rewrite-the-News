@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Fake SMS</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+</head>
+
+<body>
+
+
+<h1>Trigger SMS Message</h1>
+<form id="f">
+Message <br/>
+<input type="text" name="msg" value="" id="msg" title="SMS Message" /><br/><br/>
+<Input id="r1" type="radio" Name="rkey" Value="1" class="radiostyle" checked="true"><label class="hi1">Word 1</label>
+<Input id="r2" type="radio" Name="rkey" Value="2" class="radiostyle"><label class="hi2">Word 2</label>
+<Input id="r3" type="radio" Name="rkey" Value="3" class="radiostyle"><label class="hi3">Word 3</label>
+<Input id="r4" type="radio" Name="rkey" Value="4" class="radiostyle"><label class="hi4">Word 4</label>
+<br/>
+<button>SEND</button>
+</form>
+<div id='report'>
+
+</div>
+
+
+<script>
+
+$('button').click(function(){
+	console.log('sending');
+	
+	var msg = $('input').val();
+	console.log('msg: '+msg);
+	
+	var date = new Date().getTime();
+	console.log('date: '+date);
+	
+	// Get the value
+	var selected = $("input:radio[name=rkey]:checked").val();
+	// Display it
+	console.log('key: '+selected);
+	
+	var sarray = {
+  "inboundSMSMessageNotification": {
+    "inboundSMSMessage": {
+      "dateTime": date, 
+      "message": selected+'-'+msg, 
+      "senderAddress": "-fake-SMS-"
+    }
+  }
+};
+
+	var surl = 'http://8.19.32.198';
+	
+	$.post(surl, JSON.stringify(sarray) , function(response) {
+ 	 console.log('json post: '+response);
+	 //$('#report').html('Success!');
+	 $("#msg").val('');
+	});
+	
+	return false;
+	
+});
+
+</script>
+
+</body>
+</html>

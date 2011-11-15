@@ -10,7 +10,7 @@
     <script src="js/rewrite.js"></script>
     <script>
     $(document).ready(function() {
-			   var rewrite = new ReWrite("main"); 	// argument is namespace of socket
+			   var rewrite = new ReWrite("all");  	// argument is namespace of socket
 				});
     </script>
 
@@ -18,18 +18,13 @@
 <body>
     <div id="container">
         <div id="main">
-            <h1>Testing</h1>
-            <a href="/all">see all submissions here</a> -<br/>
-            live-updates from <b>514-418-0486</b> (SMSified) or <a href="http://8.19.32.198/send_smsified.html" target="_blank">fake-sms</a>
+            <h1>Submissions</h1>
+            all submissions from the database, plus live-updates from <b>514-418-0486</b> (SMSified) or <a href="http://8.19.32.198/send_smsified.html" target="_blank">fake-sms</a>
         </div>
-        
-        <div id="headline">
-        
-        </div>
-        
         <div id="response">
             <div>
                 <ul id="messages">
+                
                 </ul>
             </div>
         </div>

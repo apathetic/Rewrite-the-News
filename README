@@ -1,5 +1,4 @@
-set up your info in config.js
+Official Rewrite2011 Server
+on Joyent Cloud
+---------------------------
 
-log in to smsified and edit your number to send data to your domain
-
-change "apathetic.no.de" in js/rewrite.js and to updated domain

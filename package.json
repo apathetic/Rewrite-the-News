@@ -1,14 +1,15 @@
 {
-  "name": "rewrite",
-  "description": "Node.js, SMSified and MongoDB... doing stuff",
+  "name": "rewrite2011",
+  "description": "Rewrite the News",
   "version": "0.1.0",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
     "smsified": "1.0.6",
-    "socket.io": "0.8.4",
+    "socket.io": "0.8.7",
     "node-static": "0.5.9",
-    "mongoose": "*"
-  }
+    "mongoose": "2.3.10"
+  },
+  "engine": "node >= 0.4.11"
 }

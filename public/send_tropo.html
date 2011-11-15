@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>Fake SMS</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+</head>
+
+<body>
+
+
+<h1>Trigger SMS Message</h1>
+<form id="f">
+Message <br/>
+<input type="text" name="msg" value="" id="msg" title="SMS Message" /><br/><br/>
+<Input id="r1" type="radio" Name="rkey" Value="1" class="radiostyle" checked="true"><label class="hi1">Word 1</label>
+<Input id="r2" type="radio" Name="rkey" Value="2" class="radiostyle"><label class="hi2">Word 2</label>
+<Input id="r3" type="radio" Name="rkey" Value="3" class="radiostyle"><label class="hi3">Word 3</label>
+<Input id="r4" type="radio" Name="rkey" Value="4" class="radiostyle"><label class="hi4">Word 4</label>
+<br/>
+<button>SEND</button>
+</form>
+<div id='report'>
+
+</div>
+
+
+<script>
+
+$('button').click(function(){
+	console.log('sending');
+	
+	var msg = $('input').val();
+	console.log('msg: '+msg);
+	
+	var date = new Date().getTime();
+	console.log('date: '+date);
+	
+	// Get the value
+	var selected = $("input:radio[name=rkey]:checked").val();
+	// Display it
+	console.log('key: '+selected);
+	
+	var sarray = {
+  "inboundSMSMessageNotification": {
+    "inboundSMSMessage": {
+      "dateTime": date, 
+      "message": selected+'-'+msg, 
+      "senderAddress": "-fake-SMS-"
+    }
+  }
+};
+
+/*
+{"session":{"id":"8cd2dd9a3cfa416bba2ed93db4dda1ff","accountId":"58379","timestamp":"2011-11-15T16:05:34.620Z","userType":"HUMAN","initialText":"Hostatm","callId":"15e89a7e0ffe67071010b8b56a7e3e63","to":{"id":"14388002503","name":null,"channel":"TEXT","network":"SMS"},"from":{"id":"15146194954","name":null,"channel":"TEXT","network":"SMS"},"headers":{"Max-Forwards":"70","Content-Length":"124","Contact":"<sip:10.6.93.101:5066;transport=udp>","To":"<sip:9996134214@10.6.69.204:5061;to=14388002503>","CSeq":"1 INVITE","Via":"SIP/2.0/UDP 10.6.93.101:5066;branch=z9hG4bKgvu8ri","Call-ID":"wm3x5j","Content-Type":"application/sdp","From":"<sip:F97BBED3-CBB7-43DF-BE32739F5063992A@10.6.61.201;channel=private;user=15146194954;msg=Hostatm;network=SMS;step=1>;tag=eh8roc"}}}
+*/
+
+	var surl = 'http://8.19.32.198';
+	
+	$.post(surl, JSON.stringify(sarray) , function(response) {
+ 	 console.log('json post: '+response);
+	 //$('#report').html('Success!');
+	 $("#msg").val('');
+	});
+	
+	return false;
+	
+});
+
+</script>
+
+</body>
+</html>
